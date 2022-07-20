@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Jul 17, 2022 at 08:01 PM
--- Server version: 10.4.13-MariaDB
--- PHP Version: 7.4.8
+-- Host: 127.0.0.1:3308
+-- Generation Time: Jul 18, 2022 at 09:34 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,30 +24,30 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_klien`
+-- Table structure for table `data_client`
 --
 
-CREATE TABLE `data_klien` (
-  `id_klien` int(7) NOT NULL,
-  `nama_klien` varchar(25) NOT NULL,
-  `alamat` varchar(50) NOT NULL,
-  `telepon` int(13) NOT NULL
+CREATE TABLE `data_client` (
+  `id_client` int(7) NOT NULL,
+  `nama_client` varchar(25) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `phone` int(13) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `data_klien`
+-- Dumping data for table `data_client`
 --
 
-INSERT INTO `data_klien` (`id_klien`, `nama_klien`, `alamat`, `telepon`) VALUES
+INSERT INTO `data_client` (`id_client`, `nama_client`, `address`, `phone`) VALUES
 (1, 'andre', 'gedong', 812);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `data_kontak`
+-- Table structure for table `data_contact`
 --
 
-CREATE TABLE `data_kontak` (
+CREATE TABLE `data_contact` (
   `id_kontrak` int(7) NOT NULL,
   `tgl_kontrak` date NOT NULL,
   `id_klien` int(7) NOT NULL,
@@ -107,6 +107,7 @@ CREATE TABLE `request_order` (
 CREATE TABLE `user` (
   `username` varchar(100) NOT NULL,
   `password` int(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
   `role` enum('Admin','Kepala_Gudang','Manajer','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -115,15 +116,15 @@ CREATE TABLE `user` (
 --
 
 --
--- Indexes for table `data_klien`
+-- Indexes for table `data_client`
 --
-ALTER TABLE `data_klien`
-  ADD PRIMARY KEY (`id_klien`);
+ALTER TABLE `data_client`
+  ADD PRIMARY KEY (`id_client`);
 
 --
--- Indexes for table `data_kontak`
+-- Indexes for table `data_contact`
 --
-ALTER TABLE `data_kontak`
+ALTER TABLE `data_contact`
   ADD PRIMARY KEY (`id_kontrak`);
 
 --
@@ -149,15 +150,15 @@ ALTER TABLE `request_order`
 --
 
 --
--- AUTO_INCREMENT for table `data_klien`
+-- AUTO_INCREMENT for table `data_client`
 --
-ALTER TABLE `data_klien`
-  MODIFY `id_klien` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `data_client`
+  MODIFY `id_client` int(7) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `data_kontak`
+-- AUTO_INCREMENT for table `data_contact`
 --
-ALTER TABLE `data_kontak`
+ALTER TABLE `data_contact`
   MODIFY `id_kontrak` int(7) NOT NULL AUTO_INCREMENT;
 
 --
